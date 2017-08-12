@@ -475,7 +475,7 @@ function ryu {
     sudo python setup.py install
 
     # Add symbolic link to /usr/bin
-    sudo ln -s ./bin/ryu-manager /usr/local/bin/ryu-manager
+    sudo ln -sf ./bin/ryu-manager /usr/local/bin/ryu-manager
 }
 
 # Install NOX with tutorial files
