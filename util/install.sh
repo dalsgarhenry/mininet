@@ -205,7 +205,7 @@ function of13 {
     echo "Installing OpenFlow 1.3 soft switch implementation..."
     cd $BUILD_DIR/
     $install  git-core autoconf automake autotools-dev pkg-config \
-        make gcc g++ libtool libc6-dev cmake libpcap-dev libxerces-c2-dev  \
+        make gcc g++ libtool libc6-dev cmake libxerces-c2-dev libpcap-dev \
         unzip libpcre3-dev flex bison libboost-dev
 
     if [ ! -d "ofsoftswitch13" ]; then
@@ -222,13 +222,11 @@ function of13 {
         NBEESRC="nbeesrc-feb-24-2015"
         NBEEDIR="netbee"
     else
-        NBEESRC="nbeesrc-jan-10-2013"
-        NBEEDIR="nbeesrc-jan-10-2013"
+        NBEESRC="nbeesrc-feb-24-2015"
+        NBEEDIR="netbee"
     fi
 
-    NBEEURL=${NBEEURL:-http://www.nbee.org/download/}
-    wget -nc ${NBEEURL}${NBEESRC}.zip
-    unzip ${NBEESRC}.zip
+    git clone https://github.com/netgroup-polito/netbee.git
     cd ${NBEEDIR}/src
     cmake .
     make
